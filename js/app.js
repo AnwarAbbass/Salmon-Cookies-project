@@ -109,6 +109,7 @@ for ( let k = 0; k < hours.length; k++ ) {
     totalByHour[i] = totalOfTotal + totalhours;
   }
   totalByHour.push( totalhours );
+  totalOfTotal=totalOfTotal+totalhours;
 }
 
 tableFooter();
