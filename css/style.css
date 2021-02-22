@@ -1,10 +1,25 @@
 #body{
     font-family: Vollkorn;
-    width: 70%;
-    background-color: #77978E;
+    width: 80%;
+    margin: auto;
+    background-color: #EFE4D0;
+    color: #6E3E32;
 }
 body{
     font-family: Vollkorn;
     width: 70%;
     background-color:#DCBBA2;
+}
+tr,td,th{
+    border: 5px solid #77978E;
+    text-align: center;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+img{
+    margin: auto;
+    display: block;
+}
+th {
+    background-color: #D84B3C;
 }
