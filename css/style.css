@@ -2,21 +2,37 @@
   font-family: Vollkorn;
   width: 80%;
   margin: auto;
-  background-color: #efe4d0;
+  background-color: #dcbba2;
   color: #6e3e32;
 }
-body {
+
+#bodyHome {
   font-family: Vollkorn;
-  width: 70%;
+  width: 80%;
+  margin: auto;
   background-color: #dcbba2;
+  color: #6e3e32;
 }
+
+table {
+  margin-top: 20px;
+}
+#bodyHome table {
+  margin-top: 20px;
+  width: 1000px;
+}
+header a{
+  color: #6e3e32;
+}
+
 tr,
 td,
 th {
   border: 5px solid #77978e;
   text-align: center;
-  padding-right: 10px;
-  padding-left: 10px;
+  width: 120px;
+  margin: auto;
+  border-radius: 15px;
 }
 img {
   margin: auto;
@@ -24,4 +40,43 @@ img {
 }
 th {
   background-color: #d84b3c;
+}
+#sales-h1 {
+  text-align: center;
+  border: 10px dashed #77978e;
+  display: block;
+  width: 400px;
+  margin: auto;
+  padding: 20px;
+}
+footer {
+  margin: auto;
+  height: 60px;
+  width: 100%;
+  background-color: #6e3e32;
+  text-align: center;
+}
+footer a {
+  line-height: 60px;
+  text-decoration: none;
+  color: #dcbba2;
+}
+#logo {
+  width: 100px;
+  border-radius: 8px;
+  margin: auto;
+}
+header {
+  text-align: center;
+  border: 10px dashed #77978e;
+  display: block;
+  width: 400px;
+  margin: auto;
+  padding: 20px;
+}
+div{
+  margin-top: 15px;
+}
+#bodyHome footer{
+  background-color: #dcbba2;
 }

@@ -7,13 +7,28 @@
     <title>Salmon Cookies</title>
     <link rel="stylesheet" href="css/style.css" />
   </head>
-  <body>
+  <body id="bodyHome">
     <header>
+      <img id="logo" src="img/salmon.png" alt="" />
       <h1>Salmon Cookies</h1>
-      <img src="img/salmon.png" alt="" />
+      <a href="sales.html"> sales </a>
     </header>
     <main>
-      <a href="sales.html"> sales </a>
+      <div>
+      <img class="mySlides" src="img/chinook.jpg" />
+      <img class="mySlides" src="img/cutter.jpeg" />
+      <img class="mySlides" src="img/family.jpg" />
+      <img class="mySlides" src="img/fish.jpg" />
+      <img class="mySlides" src="img/frosted-cookie.jpg" />
+      <img class="mySlides" src="img/shirt.jpg" />
+      <button class="w3-button w3-display-left" onclick="plusDivs(-1)">
+        &#10094;
+      </button>
+      <button class="w3-button w3-display-right" onclick="plusDivs(+1)">
+        &#10095;
+      </button></div>
+
+      <script src="js/home.js"></script>
     </main>
     <footer></footer>
   </body>
