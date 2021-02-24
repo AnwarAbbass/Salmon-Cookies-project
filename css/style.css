@@ -80,3 +80,12 @@ div{
 #bodyHome footer{
   background-color: #dcbba2;
 }
+
+label {
+  color: #d84b3c;
+  font-weight: bold;
+  display: block;
+  width: 250px;
+  float: left;
+  }
+  label:after { content: ":" }

@@ -1,9 +1,10 @@
+/* eslint-disable no-unused-vars */
 'use strict';
 function randomValue( min, max ) {
-  console.log( 'randomValue' );
   return Math.floor( Math.random() * ( max - min + 1 ) + min );
 }
 
+let newsalmon=[];
 let hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 let total;
 let bodyElement = document.getElementById( 'body' );
@@ -19,6 +20,7 @@ function SalmonCokies( location, minimumNumberOfCustomers, maximumNumberOfCustom
   this.cookiesNumber = [];
   this.randomCustomers = [];
   this.cookiesNumber = [];
+  newsalmon.push( this );
 }
 
 SalmonCokies.prototype.randomCustomerNumber = function () {
@@ -82,7 +84,6 @@ function tableFooter() {
   th2Element.textContent = totalOfTotal;
 }
 
-tableHeader();
 
 let seattle = new SalmonCokies( 'Seattle', 23, 65, 6.3 );
 let tokyo = new SalmonCokies( 'Tokyo', 3, 24, 1.2 );
@@ -90,26 +91,58 @@ let dubai = new SalmonCokies( 'Dubai', 11, 38, 3.7 );
 let paris = new SalmonCokies( 'Paris', 20, 38, 2.3 );
 let lima = new SalmonCokies( 'Lima', 2, 16, 4.6 );
 
-let locations = [seattle, tokyo, dubai, paris, lima];
+const formElement = document.getElementById( 'AddNewLocation' );
+
+formElement.addEventListener( 'submit', function( event ){
+  event.preventDefault();
+  const location = event.target.location.value;
+  const minimumNumberOfCustomers =parseInt( event.target.minimumNumberOfCustomers.value );
+  const maximumNumberOfCustomers = parseInt( event.target.maximumNumberOfCustomers.value );
+  const averageNumberOfCookiesPurchased =parseFloat( event.target.averageNumberOfCookiesPurchased.value );
+  tableElement.deleteRow( tableElement.rows.length-1 );
+  const newSalmonCokies = new SalmonCokies( location, minimumNumberOfCustomers, maximumNumberOfCustomers,averageNumberOfCookiesPurchased );
+
+
+  newsalmon[newsalmon.length-1].randomCustomerNumber();
+  newsalmon[newsalmon.length-1].cookiesPerHour();
+  newsalmon[newsalmon.length-1].render();
+
+  totalByHour=[];
+  console.log( totalhours );
+
+  for ( let k = 0; k < hours.length; k++ ) {
+    totalhours = 0;
+    for ( let i = 0; i < newsalmon.length; i++ ) {
+      totalhours = totalhours + newsalmon[i].cookiesNumber[k];
+    }
+    totalByHour.push( totalhours );
+    totalOfTotal=totalOfTotal+totalhours;
+  }
+  tableFooter();
+
+} );
+
 
 let totalOfTotal = 0;
 let totalByHour = [];
 let totalhours;
 
-for ( let j = 0; j < locations.length; j++ ) {
-  locations[j].randomCustomerNumber();
-  locations[j].cookiesPerHour();
-  locations[j].render();
-}
+tableHeader();
 
+for ( let j = 0; j < newsalmon.length; j++ ) {
+  newsalmon[j].randomCustomerNumber();
+  newsalmon[j].cookiesPerHour();
+  newsalmon[j].render();
+}
+console.log( totalhours );
 for ( let k = 0; k < hours.length; k++ ) {
   totalhours = 0;
-  for ( let i = 0; i < locations.length; i++ ) {
-    totalhours = totalhours + locations[i].cookiesNumber[k];
-    totalByHour[i] = totalOfTotal + totalhours;
+  for ( let i = 0; i < newsalmon.length; i++ ) {
+    totalhours = totalhours + newsalmon[i].cookiesNumber[k];
   }
   totalByHour.push( totalhours );
   totalOfTotal=totalOfTotal+totalhours;
 }
 
 tableFooter();
+
